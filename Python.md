@@ -41,6 +41,29 @@ for result in result_os.split('\n'):
 #!/usr/bin/env python3
 
 import os
+
+bash_command = ["cd ~/devops-netology", "git status"]
+result_os = os.popen(' && '.join(bash_command)).read()
+for result in result_os.split('\n'):
+    if result.find('modified') != -1:
+        prepare_result = result.replace('\tmodified:   ', '')
+        print(prepare_result)
+```
+
+### Вывод скрипта при запуске при тестировании:
+```
+vagrant@vagrant:~/devops-netology$ ./test.py
+/home/vagrant/devops-netology  .idea/misc.xml
+```
+
+## Обязательная задача 3
+1. Доработать скрипт выше так, чтобы он мог проверять не только локальный репозиторий в текущей директории, а также умел воспринимать путь к репозиторию, который мы передаём как входной параметр. Мы точно знаем, что начальство коварное и будет проверять работу этого скрипта в директориях, которые не являются локальными репозиториями.
+
+### Ваш скрипт:
+```python
+!/usr/bin/env python3
+
+import os
 import sys
 
 #Присваиваем переменной cmd полный путь до текущего каталога
@@ -51,7 +74,7 @@ cmd = os.getcwd()
 if len(sys.argv)>=2:
     cmd = sys.argv[1]
     
-bash_command = ["cd "+cmd, "git status"]
+bash_command = ["cd "+cmd, "git status 2>&1"]
 
 result_os = os.popen(' && '.join(bash_command)).read()
 for result in result_os.split('\n'):
@@ -62,25 +85,15 @@ for result in result_os.split('\n'):
     if result.find('modified') != -1:
         prepare_result = result.replace('\tmodified: ', '')
         print(cmd+prepare_result)
-
 ```
 
 ### Вывод скрипта при запуске при тестировании:
 ```
-???
-```
+vagrant@vagrant:~/PycharmProjects/pythonProject/venv$ ./test.py ~/devops-netology
+/home/vagrant/devops-netology  .idea/misc.xml
 
-## Обязательная задача 3
-1. Доработать скрипт выше так, чтобы он мог проверять не только локальный репозиторий в текущей директории, а также умел воспринимать путь к репозиторию, который мы передаём как входной параметр. Мы точно знаем, что начальство коварное и будет проверять работу этого скрипта в директориях, которые не являются локальными репозиториями.
-
-### Ваш скрипт:
-```python
-???
-```
-
-### Вывод скрипта при запуске при тестировании:
-```
-???
+vagrant@vagrant:~/PycharmProjects/pythonProject/venv$ ./test.py ~/pycharm-community-2021.3.2/
+Каталог /home/vagrant/pycharm-community-2021.3.2/ не является GIT репозиторием
 ```
 
 ## Обязательная задача 4
@@ -88,12 +101,46 @@ for result in result_os.split('\n'):
 
 ### Ваш скрипт:
 ```python
-???
+#!/usr/bin/env python3
+
+import time
+import socket
+import datetime
+
+i = 1
+# Delay in seconds
+wait = 2
+server = {'drive.google.com':'0.0.0.0', 'mail.google.com':'0.0.0.0', 'google.com':'0.0.0.0'}
+init = 0
+
+print('*** start script ***')
+print(server)
+print('********************')
+
+now = datetime.datetime.now()
+while 1 == 1:
+  for host in server:
+    ip = socket.gethostbyname(host)
+    if ip != server[host]:
+      if i == 1 and init != 1:
+        print(str(now.strftime("%Y-%m-%d %H:%M:%S")) +' [ERROR] ' + str(host) +' IP mistmatch: '+server[host]+' '+ip)
+      server[host] = ip
+  i += 1
+  if i >= 50 :
+    break
+  time.sleep(wait)
 ```
 
 ### Вывод скрипта при запуске при тестировании:
 ```
-???
+vagrant@vagrant:~/PycharmProjects/pythonProject/venv$ ./Test2.py 
+*** start script ***
+{'drive.google.com': '0.0.0.0', 'mail.google.com': '0.0.0.0', 'google.com': '0.0.0.0'}
+********************
+2022-03-14 15:16:44 [ERROR] drive.google.com IP mistmatch: 0.0.0.0 142.250.74.14
+2022-03-14 15:16:44 [ERROR] mail.google.com IP mistmatch: 0.0.0.0 142.250.74.69
+2022-03-14 15:16:44 [ERROR] google.com IP mistmatch: 0.0.0.0 142.250.74.142
+
 ```
 
 ## Дополнительное задание (со звездочкой*) - необязательно к выполнению
