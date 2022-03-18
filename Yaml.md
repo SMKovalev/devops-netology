@@ -89,14 +89,12 @@ Create file google.com.yaml
 ```json
 vagrant@vagrant:~/PycharmProjects/pythonProject/venv$ ls *.json
 drive.google.com.json  google.com.json  mail.google.com.json
-
 ```
 
 ### yml-файл(ы), который(е) записал ваш скрипт:
 ```yaml
 vagrant@vagrant:~/PycharmProjects/pythonProject/venv$ ls *.yaml
 drive.google.com.yaml  google.com.yaml  mail.google.com.yaml
-
 ```
 
 ## Дополнительное задание (со звездочкой*) - необязательно к выполнению
