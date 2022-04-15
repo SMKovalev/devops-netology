@@ -37,7 +37,22 @@
 
 Приложить вывод команд установленных версий каждой из программ, оформленный в markdown.
 
+- Ansible на винде пришлось устанавливать в Cygwin. WLS не взлетел. :(
+```
+PS C:\Windows\System32> vagrant --version
+Vagrant 2.2.19
 
+PS B:\VirtualBox> .\VBoxManage.exe --version
+6.1.32r149290
+
+$ ansible --version
+ansible 2.8.4
+  config file = /etc/ansible/ansible.cfg
+  configured module search path = ['/home/Tom/.ansible/plugins/modules', '/usr/share/ansible/plugins/modules']
+  ansible python module location = /usr/lib/python3.7/site-packages/ansible
+  executable location = /usr/bin/ansible
+  python version = 3.7.12 (default, Nov 23 2021, 18:58:07) [GCC 11.2.0]
+```
 
 ## Задача 4 (*)
 
