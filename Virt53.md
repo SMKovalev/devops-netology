@@ -18,7 +18,7 @@ Hey, Netology
 </body>
 </html>
 ```
-https://hub.docker.com/repository/docker/sergeykovalev/devops15/general
+![img.png](img.png)
 
 ## Задача 2
 
