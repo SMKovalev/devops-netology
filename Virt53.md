@@ -18,6 +18,7 @@ Hey, Netology
 </body>
 </html>
 ```
+https://hub.docker.com/layers/204262080/sergeykovalev/devops15/nginx/images/sha256-4afba16f6539dd71b10f1d20d2cbf238b7044333563a2ccd2cbf85684f567c16?context=repo&tab=layers
 
 ## Задача 2
 
