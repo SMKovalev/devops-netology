@@ -65,3 +65,4 @@ https://hub.docker.com/repository/docker/sergeykovalev/devops15/general
 
 Соберите Docker образ с Ansible, загрузите на Docker Hub и пришлите ссылку вместе с остальными ответами к задачам.
 
+https://hub.docker.com/repository/docker/sergeykovalev/devops15/general
