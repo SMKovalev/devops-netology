@@ -18,6 +18,8 @@ Hey, Netology
 </body>
 </html>
 ```
+После добавления в Index.html не распознается символ '
+
 ![img.png](img.png)
 
 ## Задача 2
