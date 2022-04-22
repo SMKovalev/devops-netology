@@ -56,10 +56,29 @@ Hey, Netology
 ## Задача 3
 
 - Запустите первый контейнер из образа centos c любым тэгом в фоновом режиме, подключив папку /data из текущей рабочей директории на хостовой машине в /data контейнера;
+  - ``` vagrant@vagrant:~/virt_03_docker$ docker container run -v /home/vagrant/virt_03_docker/data:/data --name centos -d centos ```
 - Запустите второй контейнер из образа debian в фоновом режиме, подключив папку /data из текущей рабочей директории на хостовой машине в /data контейнера;
+  - ``` vagrant@vagrant:~/virt_03_docker/data$ docker run -v /home/vagrant/virt_03_docker/data:/data --name debian -d debian ```
 - Подключитесь к первому контейнеру с помощью docker exec и создайте текстовый файл любого содержания в /data;
+  - ``` [root@8bb6c79a0c56 /]# cd /data/
+    [root@8bb6c79a0c56 data]# ls
+    test.txt  test2.txt
+    [root@8bb6c79a0c56 data]# ls
+    test.txt  test2.txt  test3.txt ```
 - Добавьте еще один файл в папку /data на хостовой машине;
+  - ``` vagrant@vagrant:~/virt_03_docker/data$ ls
+    test2.txt  test3.txt  test.txt ```
 - Подключитесь во второй контейнер и отобразите листинг и содержание файлов в /data контейнера.
+  - ``` root@e9de0fca74da:/# ls
+    bin  boot  data  dev  etc  home  lib  lib64  media  mnt  opt  proc  root  run  sbin  srv  sys  tmp  usr  var
+    root@e9de0fca74da:/# cd data/
+    root@e9de0fca74da:/data# ls
+    test.txt
+    root@e9de0fca74da:/data# ls
+    test.txt  test2.txt
+    root@e9de0fca74da:/data# touch test3.txt
+    root@e9de0fca74da:/data# ls
+    test.txt  test2.txt  test3.txt ```
 
 ## Задача 4 (*)
 
