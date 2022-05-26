@@ -2,8 +2,14 @@
 
 ## Задача 1
 Используя docker поднимите инстанс PostgreSQL (версию 12) c 2 volume, в который будут складываться данные БД и бэкапы.
-
-Приведите получившуюся команду или docker-compose манифест.
+```
+vagrant@vagrant:~$ docker pull postgres:12
+vagrant@vagrant:~$ docker volume create vol2
+vol2
+vagrant@vagrant:~$ docker volume create vol1
+vol1
+vagrant@vagrant:~$ docker run --rm --name pg-docker -e POSTGRES_PASSWORD=postgres -ti -p 5432:5432 -v vol1:/var/lib/postgresql/data -v vol2:/var/lib/postgresql postgres:12
+```
 
 ## Задача 2
 В БД из задачи 1:
