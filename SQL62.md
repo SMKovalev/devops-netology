@@ -10,6 +10,7 @@ vagrant@vagrant:~$ docker volume create vol1
 vol1
 vagrant@vagrant:~$ docker run --rm --name pg-docker -e POSTGRES_PASSWORD=postgres -ti -p 5432:5432 -v vol1:/var/lib/postgresql/data -v vol2:/var/lib/postgresql postgres:12
 ```
+![img_4.png](img_4.png)
 
 ## Задача 2
 В БД из задачи 1:
