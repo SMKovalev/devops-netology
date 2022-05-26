@@ -46,6 +46,9 @@ GRANT DELETE ON TABLE public.orders TO "test-simple-user";
 ```
 ![img_5.png](img_5.png)
 
+![img_7.png](img_7.png)
+
+
 Приведите:
 
 итоговый список БД после выполнения пунктов выше,
