@@ -74,3 +74,43 @@ Hash - cost показывает стоимость запроса
 Поднимите новый пустой контейнер с PostgreSQL.
 Восстановите БД test_db в новом контейнере.
 Приведите список операций, который вы применяли для бэкапа данных и восстановления.
+
+```
+vagrant@vagrant:~$ docker exec -t pg-docker pg_dump -U postgres test_db -f /var/lib/postgresql/data/dump_test.sql
+vagrant@vagrant:~$ docker exec -i pg-docker2 psql -U postgres -d test_db -f /var/lib/postgresql/data/dump_test.sql
+SET
+SET
+SET
+SET
+SET
+ set_config 
+------------
+ 
+(1 row)
+
+SET
+SET
+SET
+SET
+SET
+SET
+SET
+SET
+SET
+SET
+SET
+SET
+CREATE TABLE
+ALTER TABLE
+CREATE TABLE
+ALTER TABLE
+COPY 5
+COPY 5
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+GRANT
+GRANT
+```
+
+Второй контейнер для задачи поднимал на порту 5433 первый на 5432
