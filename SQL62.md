@@ -13,31 +13,47 @@ vagrant@vagrant:~$ docker run --rm --name pg-docker -e POSTGRES_PASSWORD=postgre
 ![img_4.png](img_4.png)
 
 ## Задача 2
-В БД из задачи 1:
+```
+CREATE DATABASE test_db;
+CREATE ROLE "test-admin-user" SUPERUSER NOCREATEDB NOCREATEROLE NOINHERIT LOGIN;
 
-создайте пользователя test-admin-user и БД test_db
-в БД test_db создайте таблицу orders и clients (спeцификация таблиц ниже)
-предоставьте привилегии на все операции пользователю test-admin-user на таблицы БД test_db
-создайте пользователя test-simple-user
-предоставьте пользователю test-simple-user права на SELECT/INSERT/UPDATE/DELETE данных таблиц БД test_db
-Таблица orders:
+CREATE TABLE orders 
+(
+id integer, 
+name text, 
+price integer, 
+PRIMARY KEY (id) 
+);
 
-id (serial primary key)
-наименование (string)
-цена (integer)
-Таблица clients:
+CREATE TABLE clients 
+(
+	id integer PRIMARY KEY,
+	lastname text,
+	country text,
+	booking integer,
+	FOREIGN KEY (booking) REFERENCES orders (Id)
+);
 
-id (serial primary key)
-фамилия (string)
-страна проживания (string, index)
-заказ (foreign key orders)
+CREATE ROLE "test-simple-user" NOSUPERUSER NOCREATEDB NOCREATEROLE NOINHERIT LOGIN;
+GRANT SELECT ON TABLE public.clients TO "test-simple-user";
+GRANT INSERT ON TABLE public.clients TO "test-simple-user";
+GRANT UPDATE ON TABLE public.clients TO "test-simple-user";
+GRANT DELETE ON TABLE public.clients TO "test-simple-user";
+GRANT SELECT ON TABLE public.orders TO "test-simple-user";
+GRANT INSERT ON TABLE public.orders TO "test-simple-user";
+GRANT UPDATE ON TABLE public.orders TO "test-simple-user";
+GRANT DELETE ON TABLE public.orders TO "test-simple-user";
+```
+![img_5.png](img_5.png)
+
 Приведите:
 
 итоговый список БД после выполнения пунктов выше,
 описание таблиц (describe)
 SQL-запрос для выдачи списка пользователей с правами над таблицами test_db
 список пользователей с правами над таблицами test_db
-Задача 3
+
+## Задача 3
 Используя SQL синтаксис - наполните таблицы следующими тестовыми данными:
 
 Таблица orders
