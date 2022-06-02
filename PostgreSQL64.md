@@ -23,8 +23,11 @@
 ![img_21.png](img_21.png)
 
 ## Задача 2
+
 - Используя psql создайте БД test_database.
+
 ![img_26.png](img_26.png)
+
 
 Изучите бэкап БД.
 
