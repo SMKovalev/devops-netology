@@ -9,8 +9,11 @@
 Используя докер образ centos:7 как базовый и документацию по установке и запуску Elastcisearch:
 
 - составьте Dockerfile-манифест для elasticsearch
+![img_1.png](img_1.png)
 - соберите docker-образ и сделайте push в ваш docker.io репозиторий
+![img.png](img.png)
 - запустите контейнер из получившегося образа и выполните запрос пути / c хост-машины
+![img_2.png](img_2.png)
 
 Требования к elasticsearch.yml:
 
