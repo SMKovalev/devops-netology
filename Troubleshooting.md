@@ -48,7 +48,7 @@ InterfaceError: (InterfaceError) 2013: Lost connection to MySQL server during qu
 
 После запуска пользователи начали жаловаться, что СУБД время от времени становится недоступной. В dmesg вы видите, что:
 
-postmaster invoked oom-killer
+*postmaster invoked oom-killer*
 
 Как вы думаете, что происходит?
 Как бы вы решили данную проблему?
