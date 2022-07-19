@@ -15,4 +15,6 @@ export YC_TOKEN=`yc iam create-token`
 
 Ссылку на репозиторий с исходной конфигурацией терраформа.
 
+https://github.com/SMKovalev/devops-netology/tree/main/terraform
+
 ![img_1.png](img_1.png)
