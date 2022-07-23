@@ -28,10 +28,5 @@
 
 - Максимальная длина имени **80**
 - Регулярное выражение
-```
-if fifoQueue {
-    re = regexp.MustCompile(`^[a-zA-Z0-9_-]{1,75}\.fifo$`)
-} else {
-    re = regexp.MustCompile(`^[a-zA-Z0-9_-]{1,80}$`)
-}
-```
+
+![img_3.png](img_3.png)
