@@ -35,4 +35,4 @@
 В качестве результата задания приложите ссылку на созданный блок конфигураций.
 
 ### Ответ:
-- [Ссылка]()
+- [Ссылка](https://github.com/SMKovalev/devops-netology/blob/main/Terraform7.4/Module/main.tf)
